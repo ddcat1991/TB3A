@@ -1,0 +1,14 @@
+INDEX VERSION 1.126+/home/user/3A/UVN1/socket/eclipse_socket/.metadata/.plugins/org.eclipse.jdt.core
+1746614942.index
+587295871.index
+2189290169.index
+1387606211.index
+1319178520.index
+3323979937.index
+1742451247.index
+3856033806.index
+4115759000.index
+2468086199.index
+3085674569.index
+1988931165.index
+77045827.index

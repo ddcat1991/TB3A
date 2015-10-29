@@ -1,0 +1,7 @@
+world:hellow.o hello_world.o
+	cc -o world hellow.o hello_world.o
+hellow.o:hellow.c
+	cc -c hellow.c
+hellow_world.o:hello_world.c
+	cc -c hello_world.c
+

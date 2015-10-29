@@ -1,0 +1,32 @@
+#include <pwd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <errno.h>
+
+int
+main(int argc, char *argv[])
+{
+    struct passwd pwd;
+    struct passwd *result;
+    char *buf;
+    size_t bufsize;
+    int s;
+    //result=(struct passwd*)malloc(sizeof(struct passwd));
+   if (argc != 2) {
+        fprintf(stderr, "Usage: %s username\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+   printf("getpwnam begin to execute\n");
+   result = getpwnam(argv[1]);
+    
+    if(result==NULL){
+        printf("user not exist\n");
+    }else{
+
+    printf("getpwnam end to execute\n");
+   printf("Name: %s; UID: %d\n",argv[1], (int)result->pw_uid);
+    }
+    exit(EXIT_SUCCESS);
+}

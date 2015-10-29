@@ -1,0 +1,408 @@
+
+<html>
+<head>
+<title>TP Java RMI 
+ </title>
+</head>
+
+
+
+<BODY BGCOLOR="#ffffff" text="#101066" link="#000fff" vlink="#2020cc">
+
+
+
+<img src="bleuvert.gif">
+
+<center>
+<h1>
+TP Java RMI
+</h1>
+<p>
+<p>
+<b><i>Frank Singhoff</i></b>
+</center>
+
+<P>
+
+<img src="bleuvert.gif">
+
+<p>
+<center><b>SOMMAIRE</center></b>
+
+<h3>
+<ul>
+
+<li>
+<a href="tp.html#Ref10">I. Exemple de programme </a>
+<ul>
+<li><a href="tp.html#Ref12">I.1 L'application </a>
+<li><a href="tp.html#Ref14">I.2 Questions </a>
+</ul>
+
+<li>
+<a href="tp.html#Ref20">II. Utilisation élémentaire </a>
+<li>
+<a href="tp.html#Ref30">III. Usine à objets </a>
+<li>
+<a href="tp.html#Ref40">IV. Objets sérialisables </a>
+
+<li>
+<a href="./CORRECTION">IV.  Corrections </a>
+</ul>
+
+</h3>
+<p>
+<img src="bleuvert.gif">
+
+<br>
+<br>
+<p>
+<h3>
+<a name="Ref10">I. Exemple de programme </a>
+
+</h3>
+
+<h3>
+<a name="Ref12">I.1 L'application </a>
+</h3>
+
+
+Récupérez 
+les fichiers de ce premier exercice   à partir de 
+<a href="./EXO1"> ce répertoire </a>. Sauvez tous ces fichiers dans un 
+ répertoire <tt>EXO1</tt>. Nous allons travailler
+avec
+les trois fichiers source suivant&nbsp;: 
+<tt>
+<pre>
+Hello.java     HelloServeur.java   HelloClient.java    
+</pre>
+</tt>
+
+
+<p>
+<b>Environnement Java&nbsp;:</b>
+<br>
+
+
+Avant de faire ce TP, ex&eacute;cutez
+la commande SETUP JAVA17.
+
+Cette opération doit être effectuée  avant de lancer <tt>javac</tt>, <tt>java</tt>,
+<tt>rmiregistry</tt> ou <tt>rmic</tt>.
+<br>
+<br>
+<br>
+<br>
+On commente ici le contenu  de  <tt>Hello.java</tt>, l'interface&nbsp;:
+<tt>
+<pre>
+public interface Hello extends java.rmi.Remote
+{
+    String lireMessage() throws java.rmi.RemoteException;
+}
+</pre>
+</tt>
+<tt>Remote</tt> signifie que la méthode <tt>lireMessage</tt> de cette classe
+<tt>Hello</tt> 
+pourra être appelée  depuis une JVM autre que la JVM locale.
+<p>
+
+<tt>HelloServeur.java</tt> implémente cette interface&nbsp;:
+<tt>
+<pre>
+public class HelloServeur extends UnicastRemoteObject
+      implements Hello
+</pre>
+</tt>
+
+
+Pour compiler ces trois fichiers, faire&nbsp;:
+<tt>
+<pre>
+javac *.java
+</tt>
+</pre>
+On obtient alors &nbsp;: 
+<tt>
+<pre>
+Hello.class    HelloServeur.class  HelloClient.class   
+</tt>
+</pre>
+Pour avoir le <tt>stub</tt> (ou souche) pour les clients et le squelette
+du serveur, faire&nbsp;:   
+<tt>
+<pre>
+rmic   HelloServeur
+</tt>
+</pre>
+Ce qui produit les deux fichiers suivants&nbsp;: 
+<tt>
+<pre>
+HelloServeur_Skel.class     HelloServeur_Stub.class
+</tt>
+</pre>
+Maintenant, en étant dans le répertoire où se trouvent
+les fichiers <tt>.class</tt>&nbsp;:
+<ul>
+<li>lancer <tt>rmiregistry</tt> en arrière plan, en donnant un numéro
+de port particulier (23000 + uid UNIX),
+  
+<li>lancer le serveur sur la même machine que <tt>rmiregistry</tt>,
+<li>lancer le client sur une machine quelconque.
+</ul>
+Par exemple, sur la machine <tt>meije</tt> &nbsp;:
+<tt>
+<pre>
+rmiregistry 23000&
+java -Djava.security.policy=java.policy HelloServeur  23000 coucou
+</tt>
+</pre>
+le serveur répond : 
+<tt>
+<pre>
+HelloServeur enregistre : //meije.enst-bretagne.fr:23000/HelloServeur
+</tt>
+</pre>
+
+Sur une autre machine, depuis le même répertoire&nbsp;:
+<tt>
+<pre>
+java -Djava.security.policy=java.policy HelloClient  23000 meije
+</tt>
+</pre>
+le client répond : 
+<tt>
+<pre>
+ Connection au service : //meije.univ-brest.fr:23000/HelloServeur
+</tt>
+</pre>
+On voit alors apparaitre 
+la message <tt>coucou</tt> émis par le serveur.
+
+<p>
+Remarque&nbsp;:
+<br>
+L&agrave; où se trouvent les sources, il y a un fichier <tt>Makefile</tt>
+qui automatise les commandes précédentes...
+
+<h3>
+<a name="Ref14">I.2 Questions </a>
+</h3>
+
+Pour faciliter la résolution des exercices suivants, répondez aux
+questions suivantes&nbsp;:
+<ol>
+<li>
+Identifiez dans le programme l'instanciation de l'objet, son activation
+et sa publication vers le serveur de noms ?
+<li> 
+Identifiez dans le programme la récupération de la souche et l'invocation
+du service de noms.
+</ol>
+<p>
+
+<br>
+<br>
+<br>
+<p>
+<h3>
+<a name="Ref20">II. Utilisation élémentaire de RMI </a>
+</h3>
+<p>
+
+
+
+Récupérez les fichiers de cet  exercice   à partir de
+<a href="./EXO2"> ce répertoire </a>. Sauvez tous ces fichiers dans un
+ répertoire <tt>EXO2</tt>.
+
+
+Dans ce premier exercice, on vous demande d'implanter un
+serveur permettant de gérer un compte bancaire. Le serveur
+propose une interface (voir le fichier <tt>Compte.java</tt>) qui
+permet aux clients de :
+
+<ul>
+<li> débiter ou  créditer le compte d'un montant
+donné.
+<li> consulter le solde du compte.
+</ul>
+
+<p><b>Travail à faire :
+</b>
+
+<p>
+<ul>
+<li>
+Ecrire la classe <tt>CompteServeur.java</tt>  qui
+implante l'interface <tt>Compte.java</tt> 
+et qui démarre un serveur permettant de répondre à des clients RMI distants.
+<p>
+<li> Completez la classe <tt>Client.java</tt>. Testez votre serveur.
+</ul>
+
+
+
+
+<br>
+<br>
+<br>
+<p>
+<h3>
+<a name="Ref30">III. Usine à objets  </a>
+</h3>
+<p>
+
+
+
+Récupérez
+les fichiers de cet  exercice   à partir de
+<a href="./EXO3"> ce répertoire </a>. Sauvez tous ces fichiers dans un
+ répertoire <tt>EXO3</tt>.
+
+
+On regarde comment construire une usine à objets avec Java RMI.
+Une usine à objets est un objet invocable 
+à distance dont la fonction est d'instancier 
+d'autres objets invocables à distance.
+<br><br>
+
+
+On se propose d'illustrer la notion d'usine en réalisant un
+programme dont le but est d'instancier des piles d'entier.
+Pour ce faire, vous devez implanter les interfaces
+<tt>UsinePile</tt> et <tt>Pile</tt>.
+
+<p>
+La méthode <tt>creation_pile</tt>
+de l'interface <tt>UsinePile</tt> permet de créer des objets 
+de type <tt>Pile</tt>. Chaque objet de type <tt>Pile</tt> doit être publié
+au service de nom grâce au nom passé en argument lors 
+de l'appel de la méthode <tt>creation_pile</tt>.
+Les piles ainsi créées stockent des entiers. On suppose qu'une 
+pile à une taille maximale précisée à sa création.
+
+
+<p>
+L'interface <tt>Pile</tt> permet de manipuler une pile après sa création.
+On y trouve les méthodes classiques :
+<ul>
+<li>
+d'insertion (la méthode <tt>empiler</tt>). 
+L'insertion dans une pile pleine doit lever une exception dont le message est "<tt>Pile pleine</tt>".
+Pour lever une exception qui soit propagée du serveur au client, il
+suffit d'instancier la classe java 
+<tt>java.rmi.RemoteException</tt>
+avec l'instruction <tt>throw new</tt>. La chaîne de 
+caractères passée au constructeur de cette classe constitue
+le message qui sera transmis au client.
+
+
+
+<li> d'extraction (la méthode <tt>depiler</tt>).
+L'extraction sur une pile vide doit lever une exception dont le message est "<tt>Pile vide</tt>".
+<li> de consultation du dernier élément inséré (la méthode <tt>haut</tt>).
+La consultation sur une pile vide doit lever une exception dont le message est "<tt>Pile vide</tt>".
+<li> permettant de vider la pile (la méthode <tt>vider</tt>).
+<li> d'accesseurs sur le nombre d'éléments actuellement mémorisés dans la 
+pile ainsi que sa taille maximale 
+(méthodes <tt>lire_taille_courante</tt> et <tt>lire_taille_max</tt>).
+</ul>
+
+
+
+<p><b>Travail à faire : 
+</b>
+
+<p>
+<ul>
+<li>
+Ecrire les classes <tt>PileImpl.java</tt> et <tt>UsineImpl.java</tt> qui implantent respectivement 
+les interfaces 
+<tt>Pile</tt>
+et 
+<tt>UsinePile</tt> 
+et qui démarrent un serveur permettant de répondre à des clients RMI distants.
+<p>
+<li> Testez avec le programme Java <tt>Client.java</tt>.
+</ul>
+
+
+<p>
+<br>
+<br>
+<br>
+<br>
+
+<h3>
+<a name="Ref40">IV. Objets sérialisables </a>
+</h3>
+<p>
+<br>
+<br>
+<br>
+
+
+Récupérez
+les fichiers de cet exercice   à partir de
+<a href="./EXO4"> ce répertoire </a>. Sauvez tous ces fichiers dans un
+ répertoire commun <tt>EXO4</tt>.
+
+<br>
+<br>
+
+
+
+Une des particularités de Java RMI est la possibilité de transferer des objets par copie
+entre les clients et les serveurs (ce qui n'est pas possible avec CORBA). Les objets échangés par copie doivent
+implanter une interface qui étend l'interface standard 
+<tt>Serializable</tt> : on parle d'objets sérialisables ("mise en série" des données). 
+Attention : les objets sérialisables  ne peuvent pas être invoqués par un client
+situé sur une machine distante. : ils sont passés par copie au client !
+
+<p>
+Nous illustrons ce 
+point en reprennant l'exercice III mais cette fois-ci, il ne s'agit plus de gérer des piles 
+mémorisant des entiers : les piles mémorisent maintenant des objets 
+implantant l'interface 
+<a href="./EXO4/PileDonnee.java"> <tt>PileDonnee</tt></a>. 
+Pour ce faire, vous disposez d'une nouvelle version de l'interface
+<a href="./EXO4/Pile.java"> <tt>Pile</tt></a>. 
+
+
+
+
+<p><b>Travail à faire : 
+</b>
+
+
+<ul>
+<li> Modifiez la classe qui implante 
+l'interface <tt>Pile</tt> afin que votre serveur puissent maintenant 
+gérer des piles mémorisant
+des objets implantant l'interface <tt>PileDonnee</tt>.
+
+<li> Etudiez les clients <tt>Creation.java</tt> et <tt>Affiche.java</tt>.
+<li> Testez votre solution avec <tt>Creation.java</tt> et <tt>Affiche.java</tt>.
+</ul>
+<p>
+<br>
+<br>
+<br>
+<br>
+
+
+<ADDRESS>
+Page maintenue par Frank Singhoff
+<A HREF="mailto:singhoff@univ-brest.fr">
+(singhoff@univ-brest.fr)</A> <BR>
+Derni&egrave;re mise &agrave; jour le 30 janvier 2006
+</ADDRESS>
+
+
+</body>
+</html>
+
+
+   

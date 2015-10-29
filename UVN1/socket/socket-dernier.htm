@@ -1,0 +1,393 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 9">
+<meta name=Originator content="Microsoft Word 9">
+<link rel=File-List href="./socket-dernier_fichiers/filelist.xml">
+<title>Texte du TP sur les sockets</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>ENST Bretagne</o:Author>
+  <o:LastAuthor>ENST Bretagne</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>36</o:TotalTime>
+  <o:Created>2005-10-06T11:44:00Z</o:Created>
+  <o:LastSaved>2005-10-06T11:44:00Z</o:LastSaved>
+  <o:Pages>3</o:Pages>
+  <o:Words>829</o:Words>
+  <o:Characters>4729</o:Characters>
+  <o:Company>ENST Bretagne</o:Company>
+  <o:Lines>39</o:Lines>
+  <o:Paragraphs>9</o:Paragraphs>
+  <o:CharactersWithSpaces>5807</o:CharactersWithSpaces>
+  <o:Version>9.6926</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:HyphenationZone>21</w:HyphenationZone>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	mso-pagination:widow-orphan;
+	font-size:16.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:70.85pt 70.85pt 70.85pt 70.85pt;
+	mso-header-margin:35.4pt;
+	mso-footer-margin:35.4pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:1970818767;
+	mso-list-type:hybrid;
+	mso-list-template-ids:2076239424 -1159063350 67895299 67895301 67895297 67895299 67895301 67895297 67895299 67895301;}
+@list l0:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+</head>
+
+<body lang=FR link=blue vlink=purple style='tab-interval:35.4pt'>
+
+<div class=Section1>
+
+<p class=MsoTitle>Texte du TP sur les sockets</p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:16.0pt;mso-bidi-font-size:12.0pt'>Yvon Kermarrec<o:p></o:p></span></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal>Les programmes sont disponibles depuis </p>
+
+<p class=MsoNormal><a
+href="http://perso.enst-bretagne.fr/~kermarre/TPDIST/socket/">http://perso.enst-bretagne.fr/~kermarre/TPDIST/socket/</a></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>1ère partie : les sockets avec UDP<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>récupérez et installez dans un répertoire les 2 fichiers
+Example1Receiver.java et Example1Sender.java. Ces 2 programmes mettent en œuvre
+une communication avec UDP </p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>consultez dans un premier temps le code et regardez comment
+les sockets sont gérées. Regardez en particulier les différents appels à l’API
+Java.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>compilez ce code puis dans 2 fenêtres, lancez ces programmes
+en respectant l’ordre avec les commandes<span style="mso-spacerun: yes"> 
+</span><b>java Example1Receiver 2000</b> et <b>java Example1Sender localhost
+2000 &quot;texte&quot;</b><span style="mso-spacerun: yes"> 
+</span>(localhost<span style="mso-spacerun: yes">  </span>référence ici la
+machine locale càd la machine sur laquelle le programme est lancé). Que se
+passe—il&nbsp;?</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>relancez ensuite le code mais avec un ordre différent&nbsp;:
+i.e.&nbsp;; <b>java Example1Sender localhost 2000 &quot;texte&quot;</b><span
+style="mso-spacerun: yes">  </span>puis <b>java Example1Receiver 2000 </b>(toujours
+à partir de 2 fenètres différentes). Que se passe t il&nbsp;? expliquez.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Connectez vous ensuite une autre machine en ouvrant une
+fenêtre sur une machine distante. Relancez <b>Example1Receiver </b>puis sur
+l’autre machine<b> </b>et <b>java Example1Sender machine-distante 2000
+&quot;texte&quot; (</b>avec machine distante qui est le nom de la machine sur
+laquelle fonctionne<b> Example1Receiver).</b></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Relancez les mêmes séquences d&nbsp;‘opérations mais avec une
+chaîne de caractères plus longue en paramètre). Que se passe t il&nbsp;?
+expliquez.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Rajoutez du code afin que le serveur attende un maximum de 5
+secondes (méthode setSoTimeout). Que se passe t il lorsque le délai est
+écoulé&nbsp;?</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Modifiez le code de <b>Example1Receiver </b>afin qu’il boucle
+sur la réception de message.<b> </b>Que se passe t il s’il y a 2 émetteurs
+désormais au lieu d’un seul&nbsp;? vérifiez que les messages émis sont bien
+reçus.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>2<sup>ème</sup> partie : les sockets avec TCP<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>récupérez et installez dans un répertoire les 2 fichiers
+Example4ConnectionAcceptor.java et Example4ConnectionRequestor.java. Ces 2
+programmes mettent en œuvre une communication avec TCP </p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>consultez dans un premier temps le code et regardez comment
+les sockets sont gérées. Regardez en particulier les différents appels à l’API
+Java.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>compilez ce code puis dans 2 fenêtres, lancez ces programmes
+en respectant l’ordre avec les commandes <b><span style="mso-spacerun:
+yes">  </span>java Example4ConnectionAcceptor 12345 «&nbsp;titi&nbsp;»</b> et <b>java
+Example4ConnectionRequestor localhost 12345</b>. Que se passe—il&nbsp;?</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>relancez ensuite le code mais avec un ordre différent. Que se
+passe t il&nbsp;? expliquez.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Modifiez le code afin que l’émetteur envoie une chaîne de
+caractère et un entier. Modifiez le récepteur également.</p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>récupérez et installez dans un répertoire les 2 fichiers
+Example5* ainsi que MyStreamSocket.java. Cette classe java permet la séparation
+de la logique de l’application et de la logique de service, en masquant les
+détails de l’utilisation des sockets. Regardez le code puis compilez le et
+exécutez le. En quoi ces derniers programmes sont-ils différents de ceux de
+l’exemple 4&nbsp;? expliquez l’impact pour le programmeur.</p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><b>3<sup>ème</sup> partie&nbsp;: réalisation d’un outil de
+‘chat’ avec les socket<o:p></o:p></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>on s’intéresse à l’écriture d’une application de type ‘chat’
+(messagerie instantanée) entre dans 2 utilisateurs. On souhaite dans un premier
+temps que ces 2 programmes se désignent explicitement (en précisant le numéro
+de port et le nom de la machine de l’interlocuteur). Pour simplifier l’écriture
+du programme, nous allons également considérer que les 2 programmes
+fonctionnement alternativement&nbsp;: un en émission puis en réception et
+l’autre, en réception puis en émission.<span style="mso-spacerun: yes"> 
+</span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Dans un premier temps, vous pouvez<span style="mso-spacerun:
+yes">  </span>récupérer les fichiers dans le répertoire
+«&nbsp;chat/base&nbsp;». Ce programme met en oeuvre une communication entre
+deux processus distants ou non et exécutent presque le même code.<span
+style="mso-spacerun: yes">  </span>Compilez le code puis sur deux terminaux,
+lancez&nbsp;:</p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>java Example2ReceiverSender<span
+style="mso-spacerun: yes">  </span>localhost<span style="mso-spacerun: yes"> 
+</span>10000<span style="mso-spacerun: yes">    </span>20000<span
+style="mso-spacerun: yes">    </span>msg1<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>java Example2SenderReceiver<span
+style="mso-spacerun: yes">  </span>localhost<span style="mso-spacerun: yes">  
+</span>20000<span style="mso-spacerun: yes">    </span>10000<span
+style="mso-spacerun: yes">    </span>msg2<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><span style='mso-tab-count:1'>            </span></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Décrivez ce qui se passe&nbsp;. Pourquoi l’ordre du lancement
+est il important&nbsp;? </p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Modifiez le code de façon à introduire une boucle&nbsp;:
+chaque lecture se fait dans une boucle avec une temporisation de 3 secondes par
+exemple.</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>On s’intéresse maintenant à une version plus élaborée avec une
+sorte de serveur de noms (qui mémorise les différents interlocuteurs
+enregistrés et les moyens de les contacter). Pour cela, chaque processus
+communicant est repéré par un nom logique (son identité). Le problème qui se
+pose ici est de savoir comment les deux processus peuvent se connaître
+mutuellement et connaître les ports qu’ils doivent utiliser pour communiquer.
+Notre approche est assez simple&nbsp;: elle consiste à ce que chacun des 2
+écrivent ses coordonnées réseau dans un fichier qui porte le nom logique (vous
+trouvrez un exemple de manipulation de fichiers avec Java avec<span
+style="mso-spacerun: yes">  </span>lecture.java).</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Ecrivez le code …. Ou …. Trouvez la solution directement
+dans<span style="mso-spacerun: yes">  </span>«&nbsp;chat/solution&nbsp;».</p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Pour lancez le code de l’application, utilisez ici 2 terminaux
+et lancez les commandes suivantes&nbsp;: - on<span style="mso-spacerun: yes"> 
+</span>suppose ici que le premier s’appelle <i>lulu</i> et qu’il attend des
+messages sur le port 20001 et désire communiquer avec <i>titi</i></p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>java Example2ReceiverSender lulu
+20001 titi &quot;msg2&quot;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'>java Example2SenderReceiver titi
+20004 lulu msg1<o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal style='margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo1;
+tab-stops:list 36.0pt'><![if !supportLists]>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><![endif]>Expliquez pourquoi ces deux programmes doivent être lancés
+dans le même répertoire&nbsp;? pourquoi faut il NFS ou un autre système de
+partage de disque&nbsp;? Que faudrait il pour passer à un ‘serveur de noms’ qui
+éviteraient ces limitations&nbsp;?</p>
+
+<p class=MsoNormal style='margin-left:18.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoNormal style='margin-left:70.8pt'><b style='mso-bidi-font-weight:
+normal'><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:
+Arial;mso-bidi-font-family:"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'>4<sup>ème</sup> partie&nbsp;: multicast<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-bidi-font-family:
+"Times New Roman"'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></b></p>
+
+<p class=MsoNormal>Dans le répertoire ‘multicast’ vous trouverez un exemple
+d’utilisation du multicast. Compilez le code et sur ou plusieurs machines
+lancez un ou plusieurs receveurs. Lancez ensuite l’expéditeur<span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;mso-bidi-font-size:12.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

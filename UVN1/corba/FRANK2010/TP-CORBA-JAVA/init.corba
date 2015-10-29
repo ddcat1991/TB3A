@@ -1,0 +1,14 @@
+SETUP JACORB
+SETUP JAVA17
+
+
+setenv JACORB_HOME /usr/home/enstb1/JacORB
+
+setenv JAVA_CMD java
+
+setenv PATH $JACORB_HOME/bin:$JACORB_HOME/etc:$JACORB_HOME/lib:$JACORB_HOME/classes:$JACORB_HOME/src:$PATH
+
+setenv CLASSPATH $JACORB_HOME/classes:$JACORB_HOME/lib:.:classes
+
+setenv LD_LIBRARY_PATH $JACORB_HOME/libs
+

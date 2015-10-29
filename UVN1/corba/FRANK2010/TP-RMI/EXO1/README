@@ -1,0 +1,10 @@
+- Compiler par la commande "gmake"
+- Lancer rmiregistry en arriere plan en passant un numero de port 
+(ex~:~ 53000 +  votre numero de uid UNIX). 
+- Lancer le serveur sur la meme machine que rmiregistry.
+- Lancer le client sur une machine quelconque
+
+Attention : client, serveur et rmiregistry doivent etre
+	lances dans le meme repertoire
+
+

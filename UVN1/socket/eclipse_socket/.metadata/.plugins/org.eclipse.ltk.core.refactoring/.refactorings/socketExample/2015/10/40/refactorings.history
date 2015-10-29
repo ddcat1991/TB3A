@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;socketExample/src/com/ddcat/exampleTCP/Example4ConnectionRequestor.jav&apos; to &apos;Example4ConnectionRequestor.java&apos;" description="Rename resource &apos;Example4ConnectionRequestor.jav&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/ddcat/exampleTCP/Example4ConnectionRequestor.jav" name="Example4ConnectionRequestor.java" stamp="1443797851624" updateReferences="true"/>
+</session>
